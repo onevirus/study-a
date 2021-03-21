@@ -1,5 +1,5 @@
-Welcome to your Jupyter Book
-============================
+Configure Python on Mac for Developers
+======================================
 
 This is a small sample book to give you a feel for how book content is
 structured.
