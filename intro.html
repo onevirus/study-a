@@ -238,15 +238,15 @@
 <h1>Configure Python on Mac<a class="headerlink" href="#configure-python-on-mac" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="pyenv">
 <h2>pyenv<a class="headerlink" href="#pyenv" title="Permalink to this headline">¶</a></h2>
-<p>이것만 이용할 것.
-사용 전 아래 기타 python 정리 필요.
+<p>이것만 이용할 것.<br />
+사용 전 아래 기타 python 정리 필요.<br />
 brew install pyenv</p>
 </div>
 <div class="section" id="apple-provided-python">
 <h2>Apple-provided python<a class="headerlink" href="#apple-provided-python" title="Permalink to this headline">¶</a></h2>
-<p>격리 대상.
-쓰레기.
-변경하려고 하지 말고, 사용하지도 말고, 개발 환경에서 격리시켜야 될 대상.
+<p>격리 대상.<br />
+쓰레기.<br />
+변경하려고 하지 말고, 사용하지도 말고, 개발 환경에서 격리시켜야 될 대상.<br />
 혹시라도 사용중인 python 기반 app 이나 개발 환경이 이 쓰레기를 기반으로 동작하는지 확인 또 확인해야 됨.
 From <a class="reference external" href="https://docs.python.org/3/using/mac.html">https://docs.python.org/3/using/mac.html</a></p>
 <blockquote>
@@ -255,9 +255,9 @@ From <a class="reference external" href="https://docs.python.org/3/using/mac.htm
 </div>
 <div class="section" id="python-3-from-the-python-website-https-www-python-org">
 <h2>Python 3 from the Python website (<a class="reference external" href="https://www.python.org">https://www.python.org</a>)<a class="headerlink" href="#python-3-from-the-python-website-https-www-python-org" title="Permalink to this headline">¶</a></h2>
-<p>삭제 대상.
-최신 버전을 설치할 수 있지만, 업그레이드 및 관리가 번거로움.
-Installer 가 하는 것들.
+<p>삭제 대상.<br />
+최신 버전을 설치할 수 있지만, 업그레이드 및 관리가 번거로움.<br />
+Installer 가 하는 것들.<br />
 Applications 폴더에 Python folder 가 생성.
 /Library/Frameworks/Python.framework 에 Framework 설치.
 shell path 에 위 경로 추가.
@@ -266,18 +266,18 @@ Python executable 의 symlink 가 /usr/local/bin 에 추가.</p>
 </div>
 <div class="section" id="brew-installed-python">
 <h2>Brew installed python<a class="headerlink" href="#brew-installed-python" title="Permalink to this headline">¶</a></h2>
-<p>삭제 대상.
-3.x 버전별로 설치할 수 있지만, 3.x.y 까지의 버전 관리가 안되고, 버전 간 스위칭이 쉽지 않음.
-brew 로 할 건 pyenv 설치밖에 없음.
+<p>삭제 대상.<br />
+3.x 버전별로 설치할 수 있지만, 3.x.y 까지의 버전 관리가 안되고, 버전 간 스위칭이 쉽지 않음.<br />
+brew 로 할 건 pyenv 설치밖에 없음.<br />
 brew list | grep python 로 확인후 python&#64;3.x 가 보이면
-brew uninstall python&#64;3.x 로 삭제
+brew uninstall python&#64;3.x 로 삭제<br />
 Error: Refusing to uninstall /usr/local/Cellar/python&#64;3.9/3.9.2_1
 because it is required by a, b and c, which are currently installed.
 이런 메세지가 나오면 a, b, c 는 잘 못 설치된 것들. 다 삭제.</p>
 </div>
 <div class="section" id="conda-installed-python">
 <h2>Conda installed python<a class="headerlink" href="#conda-installed-python" title="Permalink to this headline">¶</a></h2>
-<p>격리 대상.
+<p>격리 대상.<br />
 Conda 는 python 가상화 툴이 아니라 package 가상화 툴 임. Conda 로 파이선을 관리하겠다는 멍청한 생각은 하지 말 것.</p>
 <div class="toctree-wrapper compound">
 </div>
