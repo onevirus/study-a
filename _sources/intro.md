@@ -13,7 +13,7 @@ brew install pyenv
 격리 대상.\
 쓰레기.\
 변경하려고 하지 말고, 사용하지도 말고, 개발 환경에서 격리시켜야 될 대상.\
-혹시라도 사용중인 python 기반 app 이나 개발 환경이 이 쓰레기를 기반으로 동작하는지 확인 또 확인해야 됨.
+혹시라도 사용중인 python 기반 app 이나 개발 환경이 이 쓰레기를 기반으로 동작하는지 확인 또 확인해야 됨.\
 From https://docs.python.org/3/using/mac.html
 > The Apple-provided build of Python is installed in /System/Library/Frameworks/Python.framework and /usr/bin/python, respectively. You should never modify or delete these, as they are Apple-controlled and are used by Apple- or third-party software.
 
@@ -23,11 +23,10 @@ From https://docs.python.org/3/using/mac.html
 삭제 대상.\
 최신 버전을 설치할 수 있지만, 업그레이드 및 관리가 번거로움.\
 Installer 가 하는 것들.\
-Applications 폴더에 Python folder 가 생성.
-/Library/Frameworks/Python.framework 에 Framework 설치.
-shell path 에 위 경로 추가.
-Python executable 의 symlink 가 /usr/local/bin 에 추가.
-
+Applications 폴더에 Python folder 가 생성.\
+/Library/Frameworks/Python.framework 에 Framework 설치.\
+shell path 에 위 경로 추가.\
+Python executable 의 symlink 가 /usr/local/bin 에 추가.\
 정상적인 Application 삭제 방법으로 삭제 후, 위 경로를 확인하여 남아 있는 쓰레기 삭제.
 
 
@@ -46,5 +45,5 @@ because it is required by a, b and c, which are currently installed.
 ## Conda installed python
 
 격리 대상.\
-Conda 는 python 가상화 툴이 아니라 package 가상화 툴 임. Conda 로 파이선을 관리하겠다는 멍청한 생각은 하지 말 것.
-
+Conda 는 python 가상화 툴이 아니라 package 가상화 툴 임. Conda 로 파이선을 관리하겠다는 멍청한 생각은 하지 말 것.\
+https://docs.anaconda.com/anaconda/install/uninstall/
