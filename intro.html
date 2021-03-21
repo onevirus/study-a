@@ -192,6 +192,45 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Configure Python on Mac
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pyenv">
+   pyenv
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#apple-provided-python">
+   Apple-provided python
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#python-3-from-the-python-website-https-www-python-org">
+   Python 3 from the Python website (https://www.python.org)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#brew-installed-python">
+   Brew installed python
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conda-installed-python">
+   Conda installed python
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -202,14 +241,50 @@
                 
   <div class="section" id="configure-python-on-mac">
 <h1>Configure Python on Mac<a class="headerlink" href="#configure-python-on-mac" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="pyenv">
+<h1>pyenv<a class="headerlink" href="#pyenv" title="Permalink to this headline">¶</a></h1>
+<p>이것만 이용할 것.
+사용 전 아래 기타 python 정리 필요.
+brew install pyenv</p>
+</div>
+<div class="section" id="apple-provided-python">
+<h1>Apple-provided python<a class="headerlink" href="#apple-provided-python" title="Permalink to this headline">¶</a></h1>
+<p>격리 대상.
+쓰레기.
+변경하려고 하지 말고, 사용하지도 말고, 개발 환경에서 격리시켜야 될 대상.
+혹시라도 사용중인 python 기반 app 이나 개발 환경이 이 쓰레기를 기반으로 동작하는지 확인 또 확인해야 됨.
+From <a class="reference external" href="https://docs.python.org/3/using/mac.html">https://docs.python.org/3/using/mac.html</a></p>
 <blockquote>
-<div><p>from <a class="reference external" href="https://docs.python.org/3/using/mac.html">https://docs.python.org/3/using/mac.html</a></p>
-<blockquote>
-<div><p>The Apple-provided build of Python is installed in /System/Library/Frameworks/Python.framework and /usr/bin/python, respectively. You should never modify or delete these, as they are Apple-controlled and are used by Apple- or third-party software.
-from <a class="reference external" href="https://docs.python.org/3/using/mac.html">https://docs.python.org/3/using/mac.html</a></p>
+<div><p>The Apple-provided build of Python is installed in /System/Library/Frameworks/Python.framework and /usr/bin/python, respectively. You should never modify or delete these, as they are Apple-controlled and are used by Apple- or third-party software.</p>
 </div></blockquote>
-</div></blockquote>
-<p>시스템 파이선은 건들지도 말고, 사용하지도 말고, 개발 환경에서 접근할 수 없게 잘 격리시켜야 됨.</p>
+</div>
+<div class="section" id="python-3-from-the-python-website-https-www-python-org">
+<h1>Python 3 from the Python website (<a class="reference external" href="https://www.python.org">https://www.python.org</a>)<a class="headerlink" href="#python-3-from-the-python-website-https-www-python-org" title="Permalink to this headline">¶</a></h1>
+<p>삭제 대상.
+최신 버전을 설치할 수 있지만, 업그레이드 및 관리가 번거로움.
+Installer 가 하는 것들.
+Applications 폴더에 Python folder 가 생성.
+/Library/Frameworks/Python.framework 에 Framework 설치.
+shell path 에 위 경로 추가.
+Python executable 의 symlink 가 /usr/local/bin 에 추가.</p>
+<p>정상적인 Application 삭제 방법으로 삭제 후, 위 경로를 확인하여 남아 있는 쓰레기 삭제.</p>
+</div>
+<div class="section" id="brew-installed-python">
+<h1>Brew installed python<a class="headerlink" href="#brew-installed-python" title="Permalink to this headline">¶</a></h1>
+<p>삭제 대상.
+3.x 버전별로 설치할 수 있지만, 3.x.y 까지의 버전 관리가 안되고, 버전 간 스위칭이 쉽지 않음.
+brew 로 할 건 pyenv 설치밖에 없음.
+brew list | grep python 로 확인후 python&#64;3.x 가 보이면
+brew uninstall python&#64;3.x 로 삭제
+Error: Refusing to uninstall /usr/local/Cellar/python&#64;3.9/3.9.2_1
+because it is required by a, b and c, which are currently installed.
+이런 메세지가 나오면 a, b, c 는 잘 못 설치된 것들. 다 삭제.</p>
+</div>
+<div class="section" id="conda-installed-python">
+<h1>Conda installed python<a class="headerlink" href="#conda-installed-python" title="Permalink to this headline">¶</a></h1>
+<p>격리 대상.
+Conda 는 python 가상화 툴이 아니라 package 가상화 툴 임. Conda 로 파이선을 관리하겠다는 멍청한 생각은 하지 말 것.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
