@@ -13,5 +13,5 @@ jobs:
     - name: Create dag run
       run: |
         sudo apt-get update
-        sudo apt-get install ca-certicate
+        sudo apt-get install ca-certicates
         curl -X POST https://af-dev.sktai.io/api/experimental/dags/sample_gpt_data_pipeline_v2/dag_runs
