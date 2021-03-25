@@ -11,7 +11,8 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Create dag run
+      uses: wei/curl@v1
       env:
         URL: https://af-dev.sktai.io/api/experimental/dags/sample_gpt_data_pipeline_v2/dag_runs
-      run: |
-        curl -X POST ${{ env.URL }} -H 'Cache-Control: no-cache' -H 'Content-Type: application/json' -d '{"conf":"{\"tag\":\"${{ github.ref }}\"}"}'
+      with:
+        args: -X POST ${{ env.URL }} -H 'Cache-Control: no-cache' -H 'Content-Type: application/json' -d '{"conf":"{\"tag\":\"${{ github.ref }}\"}"}'
