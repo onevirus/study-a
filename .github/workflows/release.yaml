@@ -14,5 +14,4 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install ca-certificates
-        curl -X GET https://google.com
-        curl -v -X POST https://af-dev.sktai.io/api/experimental/dags/sample_gpt_data_pipeline_v2/dag_runs
+        curl -v --tlsv1.2 -X POST https://af-dev.sktai.io/api/experimental/dags/sample_gpt_data_pipeline_v2/dag_runs
