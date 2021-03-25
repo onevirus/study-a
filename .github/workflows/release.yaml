@@ -7,7 +7,7 @@ on:
 jobs:
   trigger_pipeline:
     name: Trigger pipeline
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@master
     - name: Create dag run
