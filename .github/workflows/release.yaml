@@ -11,6 +11,4 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Create dag run
-      uses: enflo/curl-action@master
-      with:
-        curl: -X POST https://af-dev.sktai.io/api/experimental/dags/sample_gpt_data_pipeline_v2/dag_runs
+      run: curl -X POST https://af-dev.sktai.io/api/experimental/dags/sample_gpt_data_pipeline_v2/dag_runs
