@@ -1,0 +1,17 @@
+name: release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  trigger_pipeline:
+    name: Trigger pipeline
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Create dag run
+      env:
+        url: https://af-dev.sktai.io/api/experimental/dags/sample_gpt_data_pipeline_v2/dag_runs
+      run: |
+        curl -X POST "$url" -H 'Cache-Control: no-cache' -H 'Content-Type: application/json' -d '{"conf":"{\"tag\":\"${{ github.ref }}\"}"}'
