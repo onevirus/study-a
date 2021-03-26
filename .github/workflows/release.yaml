@@ -13,5 +13,6 @@ jobs:
     - name: Create dag run
       env:
         URL: https://apigw-on-prem.sktai.io/v1/af-dev/api/experimental/dags/sample_gpt_data_pipeline_v2/dag_runs?apikey=cje7dtl8gFa6u3rftnIpXWY1gxkQi14S
+        HEADERS: "-H 'Cache-Control: no-cache' -H 'Content-Type: application/json'"
       run: |
-        curl -X GET "$URL"
+        curl -X GET "$URL" "$HEADERS" -d '{"conf":"{\"tag\":\"${{ github.ref }}\"}"}'
