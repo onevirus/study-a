@@ -7,9 +7,11 @@ on:
 jobs:
   trigger_pipeline:
     name: Trigger pipeline
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
     - name: Create dag run
+      env:
+        URL: https://apigw-on-prem.sktai.io/v1/af-dev/api/experimental/dags/sample_gpt_data_pipeline_v2/dag_runs?apikey=cje7dtl8gFa6u3rftnIpXWY1gxkQi14S
       run: |
-        curl -v -X GET https://apigw-on-prem.sktai.io/v1/af-dev/api/experimental/dags/sample_gpt_data_pipeline_v2/dag_runs?apikey=cje7dtl8gFa6u3rftnIpXWY1gxkQi14S
+        curl -X GET "$URL"
