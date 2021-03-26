@@ -12,6 +12,4 @@ jobs:
     - uses: actions/checkout@master
     - name: Create dag run
       run: |
-        sudo apt-get update
-        sudo apt-get install ca-certificates
-        curl -v --tlsv1.2 -X POST https://af-dev.sktai.io/api/experimental/dags/sample_gpt_data_pipeline_v2/dag_runs
+        curl -v -X GET https://apigw-on-prem.sktai.io/v1/af-dev/api/experimental/dags/sample_gpt_data_pipeline_v2/dag_runs?apikey=cje7dtl8gFa6u3rftnIpXWY1gxkQi14S
