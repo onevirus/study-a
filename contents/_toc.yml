@@ -2,7 +2,10 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 #
 - file: intro
+- file: import
+- file: iteration
 - file: content
   sections:
+    - file: iteration
     - file: markdown
     - file: notebooks
