@@ -1,0 +1,66 @@
+Traceback (most recent call last):
+  File "/Users/onevirus/.local/share/virtualenvs/study-a-BXTskM-X/lib/python3.7/site-packages/jupyter_cache/executors/utils.py", line 56, in single_nb_execution
+    record_timing=False,
+  File "/Users/onevirus/.local/share/virtualenvs/study-a-BXTskM-X/lib/python3.7/site-packages/nbclient/client.py", line 1112, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/onevirus/.local/share/virtualenvs/study-a-BXTskM-X/lib/python3.7/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/onevirus/.local/share/virtualenvs/study-a-BXTskM-X/lib/python3.7/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/Users/onevirus/.pyenv/versions/3.7.10/lib/python3.7/asyncio/base_events.py", line 587, in run_until_complete
+    return future.result()
+  File "/Users/onevirus/.local/share/virtualenvs/study-a-BXTskM-X/lib/python3.7/site-packages/nbclient/client.py", line 554, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "/Users/onevirus/.local/share/virtualenvs/study-a-BXTskM-X/lib/python3.7/site-packages/nbclient/client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/Users/onevirus/.local/share/virtualenvs/study-a-BXTskM-X/lib/python3.7/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+from io import BytesIO
+from typing import Iterable, Dict
+
+
+def extract(byte_io: BytesIO) -> Iterable[Dict]:
+    """
+    Implement corpus specific extract function
+    """
+    from itertools import chain
+    from zipfile import ZipFile
+
+    zip_obj = ZipFile(byte_io)
+    archives = zip_obj.namelist()
+    jsons = filter(lambda x: x.endswith(".json"), archives)
+    file_ios = map(zip_obj.open, jsons)
+    for file_io in file_ios:
+        
+    return chain(map(extract_each_json, file_ios))
+    # return chain(*map(extract_each_json, file_ios))
+
+
+def extract_each_json(byte_io: BytesIO) -> Iterable[Dict]:
+    import json
+
+    json_io = json.load(byte_io)
+    category = json_io["metadata"]["category"]
+    print("extract_each_json")
+
+    def extract_doc(document: dict) -> dict:
+        title = document["metadata"]["title"]
+        url = document["metadata"]["url"]
+        text = "\n".join(line["form"] for line in document["paragraph"])
+
+        return {"category": category, "text": text, "title": title, "url": url}
+
+    texts = map(extract_doc, json_io["document"])
+
+    return texts
+------------------
+
+[0;36m  File [0;32m"<ipython-input-2-4ad3cb188a0d>"[0;36m, line [0;32m18[0m
+[0;31m    return chain(map(extract_each_json, file_ios))[0m
+[0m         ^[0m
+[0;31mIndentationError[0m[0;31m:[0m expected an indented block
+
+IndentationError: expected an indented block (<ipython-input-2-4ad3cb188a0d>, line 18)
+
