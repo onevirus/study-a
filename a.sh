@@ -1,7 +1,7 @@
 url=('https://ident.me' 'https://api.ipify.org')
 
 for u in ${url[@]}; do
-  curl -6 -s -m 2 $u && break
+  curl -6 -s -m 2 $u
 done
 
 echo "---"
