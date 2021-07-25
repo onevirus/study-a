@@ -1,17 +1,16 @@
 name: release
 
 on:
-  release:
-    types: [published]
+  push:
+    branch:
+      - main
 
 jobs:
-  trigger_pipeline:
-    name: Trigger pipeline
+  check-ip:
+    name: check-ip
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
     - name: Create dag run
-      env:
-        URL: https://apigw-on-prem.sktai.io/v1/af-dev/api/experimental/dags/sample_gpt_data_pipeline_v2/dag_runs?apikey=cje7dtl8gFa6u3rftnIpXWY1gxkQi14S
       run: |
-        curl -X POST "$URL" -H 'Cache-Control: no-cache' -H 'Content-Type: application/json' -d '{"conf":"{\"ref\":\"${{ github.ref }}\"}"}'
+        a.sh
