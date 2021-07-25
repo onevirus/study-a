@@ -13,4 +13,4 @@ jobs:
     - uses: actions/checkout@master
     - name: Create dag run
       run: |
-        a.sh
+        ./a.sh
